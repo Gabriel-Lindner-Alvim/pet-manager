@@ -7,13 +7,13 @@ const mockPets = [
     {id: 4, name: "Marie", species: "Gato", breed: "Persa"},
 ];
 
-function PetsPage() {
+function PetsPage({onViewPet}) {
     return(
         <div className="p-6 max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Meus Pets</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {mockPets.map(p => (
-          <PetCard key={p.id} name={p.name} species={p.species} breed={p.breed} />
+          <PetCard key={p.id} name={p.name} species={p.species} breed={p.breed} onView={() => onViewPet(p)} />
         ))}
       </div>
     </div>
